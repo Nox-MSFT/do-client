@@ -120,3 +120,14 @@ slots:
     interface: content
     content: config-file
     write: [ $SNAP_DATA/etc/deliveryoptimization-agent/configs ]
+
+plugs:
+  client-downloads-folder:
+    interface: content
+    content: client-downloads-folder
+    target: $SNAP_DATA/deliveryoptimization-snap-downloads-root
+
+layout:
+# adu_data_dir
+  /var/lib/deliveryoptimization-snap-downloads-root:
+    symlink: $SNAP_DATA/deliveryoptimization-snap-downloads-root
