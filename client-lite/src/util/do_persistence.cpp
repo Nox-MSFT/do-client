@@ -27,7 +27,11 @@ const std::string& GetConfigDirectory()
 
 const std::string& GetSDKConfigFilePath()
 {
+#ifdef DO_BUILD_FOR_SNAP
+    static std::string configFilePath(DO_CONFIG_DIRECTORY_PATH "/configs/sdk-config.json");
+#else
     static std::string configFilePath(DO_CONFIG_DIRECTORY_PATH "/sdk-config.json");
+#endif
     return configFilePath;
 }
 
